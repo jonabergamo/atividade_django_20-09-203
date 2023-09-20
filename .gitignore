@@ -1,0 +1,37 @@
+# Arquivos e pastas do sistema
+.DS_Store
+Thumbs.db
+
+# Ambiente virtual
+venv/
+*.pyc
+__pycache__/
+
+# Arquivos de banco de dados
+*.sqlite3
+
+# Chaves e credenciais
+*.env
+
+# Arquivos de IDE e editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Pastas de compilação e teste
+build/
+dist/
+*.egg-info/
+
+# Arquivos gerados durante a execução
+db.sqlite3
+*.pyc
