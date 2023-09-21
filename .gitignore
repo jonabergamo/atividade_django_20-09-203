@@ -3,6 +3,7 @@
 Thumbs.db
 
 # Ambiente virtual
+env
 venv/
 *.pyc
 __pycache__/
