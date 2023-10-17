@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from api.models import Subject
 from api.serializers import SubjectSerializer
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.permissions import IsAuthenticated
 
 
 class SubjectListCreateAPIView(APIView):
@@ -14,6 +15,7 @@ class SubjectListCreateAPIView(APIView):
     - get(request) -> Response: Retrieve a list of all Subject records.
     - post(request) -> Response: Create a new Subject record.
     """
+    permission_classes=[IsAuthenticated]
 
     @swagger_auto_schema(
         operation_description="List all Subject records.",

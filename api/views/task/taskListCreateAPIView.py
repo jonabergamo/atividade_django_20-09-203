@@ -4,9 +4,11 @@ from rest_framework.response import Response
 from api.models import Task
 from api.serializers import TaskSerializer
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.permissions import IsAuthenticated
 
 
 class TaskListCreateAPIView(APIView):
+    permission_classes=[IsAuthenticated]
     """
     API View to handle the retrieval and creation of Task records.
     """

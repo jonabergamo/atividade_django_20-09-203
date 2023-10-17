@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from api.models import Student, Subject, Task
 from api.serializers import StudentSerializer, SubjectSerializer, TaskSerializer
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.permissions import IsAuthenticated
 
 
 class StudentListCreateAPIView(APIView):
@@ -15,7 +16,7 @@ class StudentListCreateAPIView(APIView):
     - post(request) -> Response: Create a new Student record.
 
     """
-
+    permission_classes=[IsAuthenticated]
     @swagger_auto_schema(
         operation_description="List all Student records.",
         responses={

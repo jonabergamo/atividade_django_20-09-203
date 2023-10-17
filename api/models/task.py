@@ -10,7 +10,6 @@ class Task(models.Model):
     description = models.TextField()
     due_date = models.DateTimeField()
     completed = models.BooleanField(default=False)
-
     # Foreign Key and Many-to-Many relations
     student = models.ForeignKey(
         "Student", related_name="tasks", on_delete=models.CASCADE

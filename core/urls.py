@@ -12,6 +12,7 @@ from api.views import (
     TaskListCreateAPIView,
     StudentTaskListAPIView,
 )
+from rest_framework.authtoken.views import obtain_auth_token
 
 # Schema View for API documentation
 schema_view = get_schema_view(
@@ -40,6 +41,7 @@ api_routes = [
 
 # URL Patterns
 urlpatterns = [
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path("admin/", admin.site.urls),  # Admin panel
     path("api/", include(api_routes)),  # API Endpoints
     path(

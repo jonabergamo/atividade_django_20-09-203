@@ -8,6 +8,7 @@ class Subject(models.Model):
 
     name = models.CharField(max_length=100)
     description = models.TextField()
+    student = models.ForeignKey('Student', on_delete=models.CASCADE, related_name='students')
 
     def __str__(self):
         return self.name

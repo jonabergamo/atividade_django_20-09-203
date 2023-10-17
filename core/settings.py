@@ -28,7 +28,20 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_yasg",
     "api",
+    'rest_framework.authtoken',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "api_key": {"type": "apiKey", "in": "header", "name": "Authorization"}
+    },
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

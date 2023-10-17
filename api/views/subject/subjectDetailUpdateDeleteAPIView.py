@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from api.models import Subject
 from api.serializers import SubjectSerializer
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.permissions import IsAuthenticated
+
 
 
 class SubjectDetailUpdateDeleteAPIView(APIView):
@@ -15,6 +17,7 @@ class SubjectDetailUpdateDeleteAPIView(APIView):
     - put(request, id) -> Response: Update a Subject record by ID.
     - delete(request, id) -> Response: Delete a Subject record by ID.
     """
+    permission_classes=[IsAuthenticated]
 
     @swagger_auto_schema(
         operation_description="Retrieve a specific Subject by ID.",

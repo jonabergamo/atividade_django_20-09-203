@@ -5,12 +5,14 @@ from api.models import Student
 from api.serializers import StudentSerializer
 from drf_yasg.utils import swagger_auto_schema
 from django.http import Http404
+from rest_framework.permissions import IsAuthenticated
 
 
 class StudentDetailUpdateDeleteAPIView(APIView):
     """
     API View to handle CRUD operations for a single Student record.
     """
+    permission_classes=[IsAuthenticated]
 
     @swagger_auto_schema(
         responses={
