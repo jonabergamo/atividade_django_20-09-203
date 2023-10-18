@@ -10,7 +10,7 @@ class StudentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Student
-        fields = ('username', 'email', 'password')
+        fields = ('id','username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
         
         

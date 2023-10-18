@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from api.models import Student, Subject, Task
 from api.serializers import StudentSerializer, SubjectSerializer, TaskSerializer
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import permissions
 
 
 class StudentListCreateAPIView(APIView):
@@ -16,7 +16,15 @@ class StudentListCreateAPIView(APIView):
     - post(request) -> Response: Create a new Student record.
 
     """
-    permission_classes=[IsAuthenticated]
+    permission_classes=[permissions.IsAuthenticated]
+    def get_permissions(self):
+        """
+        Instantiates and returns the list of permissions that this view requires.
+        """
+        if self.request.method == 'POST':
+            return [permissions.AllowAny()]
+        return [permission() for permission in self.permission_classes]
+
     @swagger_auto_schema(
         operation_description="List all Student records.",
         responses={
